@@ -1,12 +1,12 @@
 # Please check the parameters, and adjust them according to your circumstance
 
 # Project name
-PROJECT: test
+PROJECT: Melanoma_GSE96619
 
 # ================== Control of the workflow ==================
 
 ## Do you need to do quality control?
-QC: no  # "yes" or "no"
+QC: yes  # "yes" or "no"
 
 ## Do you need to do trimming?
 TRIMMED: no  # "yes" or "no"?
@@ -26,7 +26,7 @@ VISUALIZE: no  # "yes" or "no"
 KEY: 
 
 ## the path to fastq files
-READSPATH: data/example/fastq_pair
+READSPATH: /mnt/sda2/Data/GSE96619
 
 ## the meta file describing the experiment settings
 METAFILE: configs/metadata.tsv
@@ -35,10 +35,10 @@ METAFILE: configs/metadata.tsv
 END: pair  # "pair" or "single"
 
 ## number of cores you want to allocate to this workflow
-NCORE: 30  # Use command "getconf _NPROCESSORS_ONLN" to check the number of cores/CPU on your machine
+NCORE: 14  # Use command "getconf _NPROCESSORS_ONLN" to check the number of cores/CPU on your machine
 
 ## paths for intermediate outputs and final outputs
-OUTPUTPATH: data/output # intermediate output. do not upload to github
+OUTPUTPATH: /mnt/sda2/Data/GSE96619/BAM_files # intermediate output. do not upload to github
 FINALOUTPUT: output
 
 # ================== Configuration for Quality Control ==================
@@ -68,24 +68,24 @@ ALIGNER: hisat2
 COUNTER: featureCounts  # default is "featureCounts", or you may want to use "htseq-count"
 
 ## alignment quality control
-alignmentQC: no  # "yes" or "no" to specify whether you want to do alignment QC
+alignmentQC: yes  # "yes" or "no" to specify whether you want to do alignment QC
 
 # ================== Configuration for DEA ==================
 
 ## Do you want to use edgeR or DESeq2 to do DEA?
-DEATOOL: edgeR  # "edgeR" or "DESeq2"? DESeq2 is recommended for transcriptome-based and DEA
+DEATOOL: DESeq2  # "edgeR" or "DESeq2"? DESeq2 is recommended for transcriptome-based and DEA
 
 ## Is your experiment designed in a pair-wise way?
 PAIR: TRUE  # Is this a pair test or not? ("TRUE" or "FALSE")
 
 ## the comparison(s) you want to do. If multiple comparisons, specify each pair (CONTROL & TREAT) in order respectively
-CONTROL: ["Untreated"]
-TREAT: ["Dexamethasone"]
+CONTROL: ["baseline_tumor"]
+TREAT: ["anti-PDL-treated-tumor"]
 ## length of 'CONTROL' should agree with that of 'TREAT'
 ## what you fill in there should agree with the "group" column in metadata.tsv
 
 FILTER:
-  yesOrNo: FALSE  # Filter out low expressed transcripts/genes or not? (TRUE or FALSE) It's better to be set to TRUE. FALSE is set as default only for testing fake toy data
+  yesOrNo: TRUE  # Filter out low expressed transcripts/genes or not? (TRUE or FALSE) It's better to be set to TRUE. FALSE is set as default only for testing fake toy data
 
 ## The threshold of FDR/adjusted P-value for significantly differentially expressed genes
 FDR: 0.05

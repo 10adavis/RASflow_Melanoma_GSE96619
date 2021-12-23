@@ -1,6 +1,11 @@
 sample	group	subject
-SRR1039508	Untreated	1
-SRR1039509	Dexamethasone	1
-SRR1039512	Untreated	2
-SRR1039513	Dexamethasone	2
-
+SRR5343917	baseline_tumor	melanoma_patient_1
+SRR5343918	anti-PDL-treated-tumor	melanoma_patient_1
+SRR5343919	baseline_tumor	melanoma_patient_2
+SRR5343920	anti-PDL-treated-tumor	melanoma_patient_2
+SRR5343921	baseline_tumor	melanoma_patient_3
+SRR5343922	anti-PDL-treated-tumor	melanoma_patient_3
+SRR5343923	baseline_tumor	melanoma_patient_4
+SRR5343924	anti-PDL-treated-tumor	melanoma_patient_4
+SRR5343925	baseline_tumor	melanoma_patient_5
+SRR5343926	anti-PDL-treated-tumor	melanoma_patient_5
