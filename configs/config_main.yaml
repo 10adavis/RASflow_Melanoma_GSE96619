@@ -6,19 +6,19 @@ PROJECT: Melanoma_GSE96619
 # ================== Control of the workflow ==================
 
 ## Do you need to do quality control?
-QC: yes  # "yes" or "no"
+QC: no  # "yes" or "no"
 
 ## Do you need to do trimming?
 TRIMMED: no  # "yes" or "no"?
 
 ## Which mapping reference do you want to use? Genome or transcriptome?
-REFERENCE: transcriptome  # "genome" or "transcriptome"
+REFERENCE: genome  # "genome" or "transcriptome"
 
 ## Do you want to do Differential Expression Analysis (DEA)?
 DEA: yes  # "yes" or "no"
 
 ## Do you want to visualize the results of DEA?
-VISUALIZE: no  # "yes" or "no"
+VISUALIZE: yes  # "yes" or "no"
 
 # ================== Shared parameters for some or all of the sub-workflows ==================
 
@@ -35,7 +35,7 @@ METAFILE: configs/metadata.tsv
 END: pair  # "pair" or "single"
 
 ## number of cores you want to allocate to this workflow
-NCORE: 14  # Use command "getconf _NPROCESSORS_ONLN" to check the number of cores/CPU on your machine
+NCORE: 16  # Use command "getconf _NPROCESSORS_ONLN" to check the number of cores/CPU on your machine
 
 ## paths for intermediate outputs and final outputs
 OUTPUTPATH: /mnt/sda2/Data/GSE96619/BAM_files # intermediate output. do not upload to github

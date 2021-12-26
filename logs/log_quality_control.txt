@@ -1,0 +1,3 @@
+Building DAG of jobs...
+Nothing to be done.
+Complete log: /home/andrew/Documents/Github_Repositories/RASflow/.snakemake/log/2021-12-26T094018.937941.snakemake.log

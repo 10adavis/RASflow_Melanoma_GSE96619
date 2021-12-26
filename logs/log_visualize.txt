@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 43 of /home/andrew/Documents/Github_Repositories/RASflow/workflow/visualize.rules:
+Missing input files for rule plot:
+output/Melanoma_GSE96619/genome/dea/countGroup
+output/Melanoma_GSE96619/genome/dea/DEA
