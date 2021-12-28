@@ -1,13 +1,120 @@
 Building DAG of jobs...
-MissingInputException in line 18 of /home/andrew/Documents/Github_Repositories/RASflow/workflow/dea_genome.rules:
-Missing input files for rule combineSamples:
-output/Melanoma_GSE96619/genome/countFile/SRR5343924_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343918_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343921_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343925_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343922_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343923_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343919_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343920_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343917_count.tsv
-output/Melanoma_GSE96619/genome/countFile/SRR5343926_count.tsv
+Using shell: /usr/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	DEA
+	1	all
+	1	combineSamples
+	3
+
+[Tue Dec 28 10:22:18 2021]
+rule combineSamples:
+    input: output/Melanoma_GSE96619/genome/countFile/SRR5343917_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343918_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343919_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343920_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343921_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343922_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343923_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343924_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343925_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343926_count.tsv, configs/metadata.tsv
+    output: output/Melanoma_GSE96619/genome/dea/countGroup/anti-PDL-treated-tumor_gene_count.tsv, output/Melanoma_GSE96619/genome/dea/countGroup/baseline_tumor_gene_count.tsv
+    jobid: 2
+
+scripts/combine2group_genome.py:13: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  config = yaml.load(yamlfile)
+[Tue Dec 28 10:22:19 2021]
+Finished job 2.
+1 of 3 steps (33%) done
+
+[Tue Dec 28 10:22:19 2021]
+rule DEA:
+    input: output/Melanoma_GSE96619/genome/dea/countGroup/anti-PDL-treated-tumor_gene_count.tsv, output/Melanoma_GSE96619/genome/dea/countGroup/baseline_tumor_gene_count.tsv
+    output: output/Melanoma_GSE96619/genome/dea/countGroup/baseline_tumor_gene_norm.tsv, output/Melanoma_GSE96619/genome/dea/countGroup/anti-PDL-treated-tumor_gene_norm.tsv, output/Melanoma_GSE96619/genome/dea/DEA/dea_baseline_tumor_anti-PDL-treated-tumor.tsv, output/Melanoma_GSE96619/genome/dea/DEA/deg_baseline_tumor_anti-PDL-treated-tumor.tsv
+    jobid: 1
+
+Loading required package: limma
+Loading required package: S4Vectors
+Loading required package: stats4
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following object is masked from ‘package:limma’:
+
+    plotMA
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+
+Attaching package: ‘S4Vectors’
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+Loading required package: IRanges
+Loading required package: GenomicRanges
+Loading required package: GenomeInfoDb
+Loading required package: SummarizedExperiment
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+Loading required package: DelayedArray
+Loading required package: matrixStats
+
+Attaching package: ‘matrixStats’
+
+The following objects are masked from ‘package:Biobase’:
+
+    anyMissing, rowMedians
+
+Loading required package: BiocParallel
+
+Attaching package: ‘DelayedArray’
+
+The following objects are masked from ‘package:matrixStats’:
+
+    colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
+
+The following objects are masked from ‘package:base’:
+
+    aperm, apply
+
+using supplied model matrix
+using pre-existing size factors
+estimating dispersions
+gene-wise dispersion estimates
+mean-dispersion relationship
+final dispersion estimates
+fitting model and testing
+[Tue Dec 28 10:22:46 2021]
+Finished job 1.
+2 of 3 steps (67%) done
+
+[Tue Dec 28 10:22:46 2021]
+localrule all:
+    input: output/Melanoma_GSE96619/genome/dea/countGroup/baseline_tumor_gene_norm.tsv, output/Melanoma_GSE96619/genome/dea/DEA/dea_baseline_tumor_anti-PDL-treated-tumor.tsv
+    jobid: 0
+
+[Tue Dec 28 10:22:46 2021]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /home/andrew/Documents/Github_Repositories/RASflow/.snakemake/log/2021-12-28T102218.624552.snakemake.log

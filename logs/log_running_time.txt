@@ -78,3 +78,87 @@ Time of running genome alignment:0:03:34
 Time of running DEA genome based:0:00:00
 Time of running visualization:0:00:00
 Finish time: Sun Dec 26 10:32:02 2021
+
+Project name: Melanoma_GSE96619
+Start time: Sun Dec 26 10:41:02 2021
+Time of running genome alignment:0:01:18
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Sun Dec 26 10:42:21 2021
+
+Project name: Melanoma_GSE96619
+Start time: Sun Dec 26 10:42:37 2021
+Time of running genome alignment:0:00:31
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Sun Dec 26 10:43:09 2021
+
+Project name: Melanoma_GSE96619
+Start time: Sun Dec 26 10:43:32 2021
+Time of running genome alignment:10:25:47
+Time of running DEA genome based:0:00:07
+Time of running visualization:0:00:12
+Finish time: Sun Dec 26 21:09:39 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 09:41:03 2021
+Time of running genome alignment:0:00:00
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Mon Dec 27 09:41:04 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 09:42:50 2021
+Time of running genome alignment:0:00:00
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Mon Dec 27 09:42:52 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 09:44:21 2021
+Time of running genome alignment:0:00:00
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Mon Dec 27 09:44:22 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 09:48:28 2021
+Time of running genome alignment:1:28:45
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Mon Dec 27 11:17:15 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 13:32:09 2021
+Time of running genome alignment:6:39:02
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Mon Dec 27 20:11:13 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 21:14:03 2021
+Time of running genome alignment:0:00:01
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Mon Dec 27 21:14:05 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 21:15:22 2021
+Time of running genome alignment:0:00:00
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Mon Dec 27 21:15:24 2021
+
+Project name: Melanoma_GSE96619
+Start time: Mon Dec 27 21:16:05 2021
+Time of running genome alignment:3:01:07
+Time of running DEA genome based:0:00:00
+Time of running visualization:0:00:00
+Finish time: Tue Dec 28 00:17:13 2021
+
+Project name: Melanoma_GSE96619
+Start time: Tue Dec 28 08:42:51 2021
+Time of running genome alignment:1:39:27
+Time of running DEA genome based:0:00:28
+Time of running visualization:0:01:19
+Finish time: Tue Dec 28 10:24:06 2021

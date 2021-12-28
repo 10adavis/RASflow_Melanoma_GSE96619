@@ -4,22 +4,411 @@ Provided cores: 1
 Rules claiming more threads will be scaled down.
 Job counts:
 	count	jobs
-	10	alignment
-	10	alignmentQC
+	1	alignment
+	2	alignmentQC
 	1	end
-	10	featureCount
-	10	getReads
-	10	sortBAM
+	2	featureCount
+	1	getReads
+	2	sortBAM
 	1	summaryReport
-	52
+	10
 
-[Sun Dec 26 10:28:27 2021]
+[Tue Dec 28 08:42:51 2021]
+rule sortBAM:
+    input: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFile/SRR5343921.bam
+    output: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFileSort/SRR5343921.sort.bam
+    jobid: 29
+    wildcards: sample=SRR5343921
+
+[bam_sort_core] merging from 70 files and 14 in-memory blocks...
+Removing temporary output file /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFile/SRR5343921.bam.
+[Tue Dec 28 08:48:16 2021]
+Finished job 29.
+1 of 10 steps (10%) done
+
+[Tue Dec 28 08:48:16 2021]
+rule featureCount:
+    input: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFileSort/SRR5343921.sort.bam, data/ref/Homo_sapiens.GRCh38.84.gtf
+    output: output/Melanoma_GSE96619/genome/countFile/SRR5343921_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343921_count.tsv.summary
+    jobid: 12
+    wildcards: sample=SRR5343921
+
+[33mJob counts:
+	count	jobs
+	1	featureCount
+	1[0m
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v1.6.4
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                           P SRR5343921.sort.bam                            ||
+||                                                                            ||
+||             Output file : SRR5343921_count.tsv                             ||
+||                 Summary : SRR5343921_count.tsv.summary                     ||
+||              Annotation : Homo_sapiens.GRCh38.84.gtf (GTF)                 ||
+||      Dir for temp files : output/Melanoma_GSE96619/genome/countFile        ||
+||                                                                            ||
+||                 Threads : 14                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file Homo_sapiens.GRCh38.84.gtf ...                        ||
+||    Features : 1176808                                                      ||
+||    Meta-features : 60675                                                   ||
+||    Chromosomes/contigs : 59                                                ||
+||                                                                            ||
+|| Process BAM file SRR5343921.sort.bam...                                    ||
+||    Paired-end reads are included.                                          ||
+||    Assign alignments (paired-end) to features...                           ||
+||                                                                            ||
+||    WARNING: reads from the same pair were found not adjacent to each       ||
+||             other in the input (due to read sorting by location or         ||
+||             reporting of multi-mapping read pairs).                        ||
+||                                                                            ||
+||    Pairing up the read pairs.                                              ||
+||                                                                            ||
+||    Total alignments : 97484713                                             ||
+||    Successfully assigned alignments : 79675908 (81.7%)                     ||
+||    Running time : 0.73 minutes                                             ||
+||                                                                            ||
+||                                                                            ||
+|| Summary of counting results can be found in file "output/Melanoma_GSE9661  ||
+|| 9/genome/countFile/SRR5343921_count.tsv.summary"                           ||
+||                                                                            ||
+\\============================================================================//
+
+[Tue Dec 28 08:49:07 2021]
+Finished job 12.
+2 of 10 steps (20%) done
+
+[Tue Dec 28 08:49:07 2021]
+rule alignmentQC:
+    input: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFileSort/SRR5343921.sort.bam
+    output: output/Melanoma_GSE96619/genome/alignmentQC/SRR5343921_BAMqc
+    jobid: 13
+    wildcards: sample=SRR5343921
+
+Display:  :0
+Java memory size is set to 6G
+Launching application...
+
+QualiMap v.2.2.2-dev
+Built on 2016-12-11 14:41
+
+Selected tool: bamqc
+Available memory (Mb): 33
+Max memory (Mb): 6442
+Starting bam qc....
+Loading sam header...
+Loading locator...
+Loading reference...
+Number of windows: 400, effective number of windows: 593
+Chunk of reads size: 1000
+Number of threads: 14
+Processed 59 out of 593 windows...
+Processed 118 out of 593 windows...
+Processed 177 out of 593 windows...
+Processed 236 out of 593 windows...
+Processed 295 out of 593 windows...
+Processed 354 out of 593 windows...
+Processed 413 out of 593 windows...
+Processed 472 out of 593 windows...
+Processed 531 out of 593 windows...
+Processed 590 out of 593 windows...
+Total processed windows:593
+Number of reads: 185403232
+Number of valid reads: 181100944
+Number of correct strand reads:0
+
+Inside of regions...
+Num mapped reads: 181100944
+Num mapped first of pair: 91105774
+Num mapped second of pair: 89995170
+Num singletons: 2995670
+Time taken to analyze reads: 1188
+Computing descriptors...
+numberOfMappedBases: 257953636634
+referenceSize: 3099750718
+numberOfSequencedBases: 18067355712
+numberOfAs: 4524485672
+Computing per chromosome statistics...
+Computing histograms...
+Overall analysis time: 1227
+end of bam qc
+Computing report...
+Writing HTML report...
+HTML report created successfully
+
+Finished
+[Tue Dec 28 09:09:39 2021]
+Finished job 13.
+3 of 10 steps (30%) done
+
+[Tue Dec 28 09:09:39 2021]
 rule getReads:
-    output: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343917_forward.fastq.gz, /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343917_reverse.fastq.gz
-    jobid: 45
-    wildcards: sample=SRR5343917
+    output: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343918_forward.fastq.gz, /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343918_reverse.fastq.gz
+    jobid: 52
+    wildcards: sample=SRR5343918
 
 [33mJob counts:
 	count	jobs
 	1	getReads
 	1[0m
+[Tue Dec 28 09:12:13 2021]
+Finished job 52.
+4 of 10 steps (40%) done
+
+[Tue Dec 28 09:12:13 2021]
+rule alignment:
+    input: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/indexes, /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/splicesites.txt, /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343918_forward.fastq.gz, /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343918_reverse.fastq.gz
+    output: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/samFile/SRR5343918.sam, /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFile/SRR5343918.bam
+    jobid: 41
+    benchmark: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/benchmarks/SRR5343918.hisat2.benchmark.txt
+    wildcards: sample=SRR5343918
+
+[33mJob counts:
+	count	jobs
+	1	alignment
+	1[0m
+81685413 reads; of these:
+  81685413 (100.00%) were paired; of these:
+    4027497 (4.93%) aligned concordantly 0 times
+    74952538 (91.76%) aligned concordantly exactly 1 time
+    2705378 (3.31%) aligned concordantly >1 times
+    ----
+    4027497 pairs aligned concordantly 0 times; of these:
+      462810 (11.49%) aligned discordantly 1 time
+    ----
+    3564687 pairs aligned 0 times concordantly or discordantly; of these:
+      7129374 mates make up the pairs; of these:
+        4151686 (58.23%) aligned 0 times
+        2768290 (38.83%) aligned exactly 1 time
+        209398 (2.94%) aligned >1 times
+97.46% overall alignment rate
+Removing temporary output file /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343918_reverse.fastq.gz.
+Removing temporary output file /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/reads/SRR5343918_forward.fastq.gz.
+Removing temporary output file /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/samFile/SRR5343918.sam.
+[Tue Dec 28 09:55:54 2021]
+Finished job 41.
+5 of 10 steps (50%) done
+
+[Tue Dec 28 09:55:54 2021]
+rule sortBAM:
+    input: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFile/SRR5343918.bam
+    output: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFileSort/SRR5343918.sort.bam
+    jobid: 31
+    wildcards: sample=SRR5343918
+
+[bam_sort_core] merging from 56 files and 14 in-memory blocks...
+Removing temporary output file /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFile/SRR5343918.bam.
+[Tue Dec 28 10:03:13 2021]
+Finished job 31.
+6 of 10 steps (60%) done
+
+[Tue Dec 28 10:03:13 2021]
+rule featureCount:
+    input: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFileSort/SRR5343918.sort.bam, data/ref/Homo_sapiens.GRCh38.84.gtf
+    output: output/Melanoma_GSE96619/genome/countFile/SRR5343918_count.tsv, output/Melanoma_GSE96619/genome/countFile/SRR5343918_count.tsv.summary
+    jobid: 20
+    wildcards: sample=SRR5343918
+
+[33mJob counts:
+	count	jobs
+	1	featureCount
+	1[0m
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v1.6.4
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                           P SRR5343918.sort.bam                            ||
+||                                                                            ||
+||             Output file : SRR5343918_count.tsv                             ||
+||                 Summary : SRR5343918_count.tsv.summary                     ||
+||              Annotation : Homo_sapiens.GRCh38.84.gtf (GTF)                 ||
+||      Dir for temp files : output/Melanoma_GSE96619/genome/countFile        ||
+||                                                                            ||
+||                 Threads : 14                                               ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : yes                                              ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+||          Chimeric reads : counted                                          ||
+||        Both ends mapped : not required                                     ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file Homo_sapiens.GRCh38.84.gtf ...                        ||
+||    Features : 1176808                                                      ||
+||    Meta-features : 60675                                                   ||
+||    Chromosomes/contigs : 59                                                ||
+||                                                                            ||
+|| Process BAM file SRR5343918.sort.bam...                                    ||
+||    Paired-end reads are included.                                          ||
+||    Assign alignments (paired-end) to features...                           ||
+||                                                                            ||
+||    WARNING: reads from the same pair were found not adjacent to each       ||
+||             other in the input (due to read sorting by location or         ||
+||             reporting of multi-mapping read pairs).                        ||
+||                                                                            ||
+||    Pairing up the read pairs.                                              ||
+||                                                                            ||
+||    Total alignments : 86291952                                             ||
+||    Successfully assigned alignments : 68200949 (79.0%)                     ||
+||    Running time : 0.54 minutes                                             ||
+||                                                                            ||
+||                                                                            ||
+|| Summary of counting results can be found in file "output/Melanoma_GSE9661  ||
+|| 9/genome/countFile/SRR5343918_count.tsv.summary"                           ||
+||                                                                            ||
+\\============================================================================//
+
+[Tue Dec 28 10:03:52 2021]
+Finished job 20.
+7 of 10 steps (70%) done
+
+[Tue Dec 28 10:03:52 2021]
+rule alignmentQC:
+    input: /mnt/sda2/Data/GSE96619/BAM_files/Melanoma_GSE96619/genome/bamFileSort/SRR5343918.sort.bam
+    output: output/Melanoma_GSE96619/genome/alignmentQC/SRR5343918_BAMqc
+    jobid: 19
+    wildcards: sample=SRR5343918
+
+Display:  :0
+Java memory size is set to 6G
+Launching application...
+
+QualiMap v.2.2.2-dev
+Built on 2016-12-11 14:41
+
+Selected tool: bamqc
+Available memory (Mb): 33
+Max memory (Mb): 6442
+Starting bam qc....
+Loading sam header...
+Loading locator...
+Loading reference...
+Number of windows: 400, effective number of windows: 593
+Chunk of reads size: 1000
+Number of threads: 14
+Processed 59 out of 593 windows...
+Processed 118 out of 593 windows...
+Processed 177 out of 593 windows...
+Processed 236 out of 593 windows...
+Processed 295 out of 593 windows...
+Processed 354 out of 593 windows...
+Processed 413 out of 593 windows...
+Processed 472 out of 593 windows...
+Processed 531 out of 593 windows...
+Processed 590 out of 593 windows...
+Total processed windows:593
+Number of reads: 163370826
+Number of valid reads: 159219140
+Number of correct strand reads:0
+
+Inside of regions...
+Num mapped reads: 159219140
+Num mapped first of pair: 79957675
+Num mapped second of pair: 79261465
+Num singletons: 2537036
+Time taken to analyze reads: 1062
+Computing descriptors...
+numberOfMappedBases: 243073804357
+referenceSize: 3099750718
+numberOfSequencedBases: 15880818824
+numberOfAs: 3943490049
+Computing per chromosome statistics...
+Computing histograms...
+Overall analysis time: 1096
+end of bam qc
+Computing report...
+Writing HTML report...
+HTML report created successfully
+
+Finished
+[Tue Dec 28 10:22:11 2021]
+Finished job 19.
+8 of 10 steps (80%) done
+
+[Tue Dec 28 10:22:11 2021]
+rule summaryReport:
+    input: output/Melanoma_GSE96619/genome/alignmentQC/SRR5343917_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343918_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343919_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343920_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343921_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343922_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343923_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343924_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343925_BAMqc, output/Melanoma_GSE96619/genome/alignmentQC/SRR5343926_BAMqc, output/Melanoma_GSE96619/genome/countFile/SRR5343917_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343918_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343919_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343920_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343921_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343922_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343923_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343924_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343925_count.tsv.summary, output/Melanoma_GSE96619/genome/countFile/SRR5343926_count.tsv.summary
+    output: output/Melanoma_GSE96619/genome/report_align_count.html
+    jobid: 1
+
+/home/andrew/mambaforge/envs/rasflow/lib/python3.6/site-packages/multiqc/utils/config.py:45: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  configs = yaml.load(f)
+/home/andrew/mambaforge/envs/rasflow/lib/python3.6/site-packages/multiqc/utils/config.py:51: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  sp = yaml.load(f)
+[WARNING]         multiqc : MultiQC Version v1.11 now available!
+[INFO   ]         multiqc : This is MultiQC v1.5.dev0
+[INFO   ]         multiqc : Template    : default
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343917_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343918_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343919_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343920_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343921_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343922_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343923_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343924_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343925_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/alignmentQC/SRR5343926_BAMqc'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343917_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343918_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343919_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343920_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343921_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343922_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343923_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343924_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343925_count.tsv.summary'
+[INFO   ]         multiqc : Searching 'output/Melanoma_GSE96619/genome/countFile/SRR5343926_count.tsv.summary'
+Searching 520 files..
+[INFO   ]        qualimap : Found 10 BamQC reports
+[INFO   ]  feature_counts : Found 10 reports
+[INFO   ]         multiqc : Compressing plot data
+[INFO   ]         multiqc : Report      : output/Melanoma_GSE96619/genome/report_align_count.html
+[INFO   ]         multiqc : Data        : output/Melanoma_GSE96619/genome/report_align_count_data
+[INFO   ]         multiqc : MultiQC complete
+[Tue Dec 28 10:22:18 2021]
+Finished job 1.
+9 of 10 steps (90%) done
+
+[Tue Dec 28 10:22:18 2021]
+localrule end:
+    input: output/Melanoma_GSE96619/genome/report_align_count.html
+    jobid: 0
+
+[Tue Dec 28 10:22:18 2021]
+Finished job 0.
+10 of 10 steps (100%) done
+Complete log: /home/andrew/Documents/Github_Repositories/RASflow/.snakemake/log/2021-12-28T084251.304722.snakemake.log

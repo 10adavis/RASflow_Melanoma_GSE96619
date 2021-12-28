@@ -1,5 +1,122 @@
 Building DAG of jobs...
-MissingInputException in line 43 of /home/andrew/Documents/Github_Repositories/RASflow/workflow/visualize.rules:
-Missing input files for rule plot:
-output/Melanoma_GSE96619/genome/dea/countGroup
-output/Melanoma_GSE96619/genome/dea/DEA
+Using shell: /usr/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	end
+	1	plot
+	2
+
+[Tue Dec 28 10:22:47 2021]
+rule plot:
+    input: output/Melanoma_GSE96619/genome/dea/countGroup, output/Melanoma_GSE96619/genome/dea/DEA
+    output: output/Melanoma_GSE96619/genome/dea/visualization/volcano_plot_baseline_tumor_anti-PDL-treated-tumor.pdf, output/Melanoma_GSE96619/genome/dea/visualization/heatmap_baseline_tumor_anti-PDL-treated-tumor.pdf
+    jobid: 1
+
+Loading required package: plotscale
+hash-3.0.1 provided by Decision Patterns
+
+Loading required package: GenomicFeatures
+Loading required package: BiocGenerics
+Loading required package: parallel
+
+Attaching package: ‘BiocGenerics’
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colMeans,
+    colnames, colSums, dirname, do.call, duplicated, eval, evalq,
+    Filter, Find, get, grep, grepl, intersect, is.unsorted, lapply,
+    lengths, Map, mapply, match, mget, order, paste, pmax, pmax.int,
+    pmin, pmin.int, Position, rank, rbind, Reduce, rowMeans, rownames,
+    rowSums, sapply, setdiff, sort, table, tapply, union, unique,
+    unsplit, which, which.max, which.min
+
+Loading required package: S4Vectors
+Loading required package: stats4
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:hash’:
+
+    values, values<-
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+Loading required package: IRanges
+Loading required package: GenomeInfoDb
+Loading required package: GenomicRanges
+Loading required package: AnnotationDbi
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+
+Attaching package: ‘AnnotationDbi’
+
+The following objects are masked from ‘package:hash’:
+
+    keys, keys<-
+
+Loading required package: ggplot2
+Loading required package: ggrepel
+Querying chunk 1
+Querying chunk 2
+Querying chunk 3
+Querying chunk 4
+Querying chunk 5
+Querying chunk 6
+Querying chunk 7
+Querying chunk 8
+Querying chunk 9
+Querying chunk 10
+Querying chunk 11
+Querying chunk 12
+Querying chunk 13
+Querying chunk 14
+Querying chunk 15
+Querying chunk 16
+Querying chunk 17
+Querying chunk 18
+Querying chunk 19
+Querying chunk 20
+Querying chunk 21
+Querying chunk 22
+Querying chunk 23
+Querying chunk 24
+Querying chunk 25
+Querying chunk 26
+Finished
+Pass returnall=TRUE to return lists of duplicate or missing query terms.
+Finished
+Pass returnall=TRUE to return lists of duplicate or missing query terms.
+There were 32 warnings (use warnings() to see them)
+[Tue Dec 28 10:24:06 2021]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Tue Dec 28 10:24:06 2021]
+localrule end:
+    input: output/Melanoma_GSE96619/genome/dea/visualization/volcano_plot_baseline_tumor_anti-PDL-treated-tumor.pdf, output/Melanoma_GSE96619/genome/dea/visualization/heatmap_baseline_tumor_anti-PDL-treated-tumor.pdf
+    jobid: 0
+
+[Tue Dec 28 10:24:06 2021]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/andrew/Documents/Github_Repositories/RASflow/.snakemake/log/2021-12-28T102247.016350.snakemake.log

@@ -7,4 +7,5 @@
 .DS_Store
 
 # ignore the following folders
-data/output/
+output/
+data/ref
